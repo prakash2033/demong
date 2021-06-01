@@ -33,7 +33,7 @@ describe('AppComponent', () => {
 
   it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges(); //only when testing ui html components
+    fixture.detectChanges(); //Triggers ngoninit
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Welcome to demong!');
   });
@@ -66,7 +66,7 @@ describe('AppComponent', () => {
     expect(component.showLoadingIndicator).toEqual(true);
     tick(1000);
     expect(component.showLoadingIndicator).toEqual(false);
-  }))
+  }));
   
   //ng test --code-coverage
 });
