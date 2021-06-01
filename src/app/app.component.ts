@@ -1,3 +1,4 @@
+import { AppService } from './app.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,27 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'demong';
+
+  postDetails;
+  showLoadingIndicator;
+
+  constructor(private service: AppService){
+    this.postDetails = [];
+  }
+
+  ngOnInit(){
+  }
+
+  getPostDetails(){
+    this.showLoadingIndicator = true;
+    this.service.getPosts().subscribe((response:[])=>{
+      this.showLoadingIndicator = false;
+      if(response && response.length > 1){
+        this.postDetails = response;
+      }
+      else{
+        this.postDetails = [];
+      }
+    });
+  }
 }

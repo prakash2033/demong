@@ -1,8 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { doesNotThrow } from 'assert';
-
 import { ValueService } from './value.service';
-
 
 // Straight Jasmine testing without Angular's testing support
 describe('ValueService, Jasmine testing without angular testing support',()=>{
