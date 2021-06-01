@@ -37,10 +37,23 @@ describe('ValueService, Jasmine testing without angular testing support',()=>{
 });
 
 describe('ValueService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  let service: ValueService;
+  beforeEach(() => TestBed.configureTestingModule({
+    providers: [ValueService]
+  }));
 
   it('should be created', () => {
     const service: ValueService = TestBed.get(ValueService);
     expect(service).toBeTruthy();
+  });
+
+  /*
+  Note: TestBed.get() was deprecated as of Angular version 9. To help minimize breaking changes, 
+  Angular introduces a new function called TestBed.inject(), which you should use instead. 
+  For information on the removal of TestBed.get(), see its entry in the Deprecations index.
+  */
+  it('should use valueservice',()=>{
+    service = TestBed.get(ValueService);
+    expect(service.getValue()).toBe('real value');
   });
 });
