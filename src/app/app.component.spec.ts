@@ -66,7 +66,7 @@ describe('AppComponent', () => {
     expect(component.showLoadingIndicator).toEqual(true);
     tick(1000);
     expect(component.showLoadingIndicator).toEqual(false);
+    //expect(component.postDetails).toEqual([{postId : 100}]);
   }));
-  
   //ng test --code-coverage
 });
